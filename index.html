@@ -10,102 +10,56 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --red:#CC1414;
-      --red-dark:#A00E0E;
-      --red-light:#FDF2F2;
-      --green:#1B5E20;
-      --green-mid:#2E7D32;
-      --green-dark:#143D17;
-      --green-light:#E8F5E9;
-      --white:#FFFFFF;
-      --off:#F7F8F5;
-      --muted:#5A6A5A;
-      --border:rgba(0,0,0,0.09);
-      --D:'Barlow Condensed',sans-serif;
-      --B:'Barlow',sans-serif;
+      --red:#CC1414; --red-dark:#A00E0E; --red-light:#FDF2F2;
+      --black:#111111; --charcoal:#1E1E1E;
+      --white:#FFFFFF; --off:#F8F7F5;
+      --muted:#666666; --border:rgba(0,0,0,0.10);
+      --D:'Barlow Condensed',sans-serif; --B:'Barlow',sans-serif;
     }
     html{scroll-behavior:smooth}
-    body{font-family:var(--B);color:var(--green-dark);background:var(--white);font-size:16px;line-height:1.7}
+    body{font-family:var(--B);color:var(--black);background:var(--white);font-size:16px;line-height:1.7}
 
-    /* ── NAV ── */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      background:var(--green);border-bottom:3px solid var(--red);
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 5vw;height:62px;
-    }
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--black);border-bottom:3px solid var(--red);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:62px}
     .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .nav-ring{
-      width:34px;height:34px;border-radius:50%;
-      border:3px solid var(--red);display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;
-    }
+    .nav-ring{width:34px;height:34px;border-radius:50%;border:3px solid var(--red);display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
     .nav-ring::before{content:'';width:18px;height:18px;border-radius:50%;border:2px solid var(--red);position:absolute}
     .nav-ring::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--red);position:absolute}
     .nav-name{font-family:var(--D);font-size:20px;font-weight:700;color:var(--red);letter-spacing:.04em;display:block}
-    .nav-sub{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.12em;display:block}
+    .nav-sub{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.12em;display:block}
     .nav-links{display:flex;gap:24px;list-style:none;align-items:center}
-    .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;transition:color .2s}
+    .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:color .2s}
     .nav-links a:hover{color:var(--white)}
     .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:7px 18px;border-radius:3px;font-weight:600!important}
     .nav-cta:hover{background:var(--red-dark)!important}
 
-    /* ── HERO ── */
-    .hero{
-      min-height:100vh;background:var(--green);
-      display:grid;grid-template-columns:1.15fr .85fr;
-      align-items:center;padding:100px 5vw 60px;gap:48px;
-      position:relative;overflow:hidden;
-    }
+    /* HERO */
+    .hero{min-height:100vh;background:var(--black);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;padding:100px 5vw 60px;gap:48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
-    .hero::after{
-      content:'CDO';position:absolute;right:-10px;bottom:-50px;
-      font-family:var(--D);font-size:260px;font-weight:700;
-      color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;
-    }
+    .hero::after{content:'CDO';position:absolute;right:-10px;bottom:-50px;font-family:var(--D);font-size:260px;font-weight:700;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
     .hero-text{position:relative;z-index:1}
-    .eyebrow{
-      font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--red);
-      text-transform:uppercase;margin-bottom:16px;
-      display:flex;align-items:center;gap:10px;
-    }
+    .eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
     .eyebrow::before{content:'';width:28px;height:2px;background:var(--red);display:block}
-    h1{
-      font-family:var(--D);font-size:clamp(2.6rem,4.5vw,4rem);
-      color:var(--white);line-height:1.08;font-weight:700;
-      text-transform:uppercase;letter-spacing:.01em;margin-bottom:22px;
-    }
+    h1{font-family:var(--D);font-size:clamp(2.6rem,4.5vw,4rem);color:var(--white);line-height:1.08;font-weight:700;text-transform:uppercase;letter-spacing:.01em;margin-bottom:22px}
     h1 .r{color:var(--red)}
-    .eng-card{
-      display:flex;align-items:center;gap:14px;
-      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-      border-left:3px solid var(--red);border-radius:4px;
-      padding:14px 18px;margin-bottom:26px;max-width:480px;
-    }
-    .eng-av{
-      width:42px;height:42px;border-radius:50%;background:var(--red);
-      display:flex;align-items:center;justify-content:center;
-      font-family:var(--D);font-size:16px;font-weight:700;color:var(--white);flex-shrink:0;
-    }
+    .eng-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--red);border-radius:4px;padding:14px 18px;margin-bottom:26px;max-width:480px}
+    .eng-av{width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:16px;font-weight:700;color:var(--white);flex-shrink:0}
     .eng-name{font-size:14px;font-weight:600;color:var(--white)}
-    .eng-role{font-size:12px;color:rgba(255,255,255,.5)}
-    .eng-ct{font-size:12px;color:rgba(255,255,255,.38);margin-top:2px}
-    .hero-desc{font-size:15px;color:rgba(255,255,255,.6);max-width:460px;margin-bottom:32px;line-height:1.75;font-weight:300}
+    .eng-role{font-size:12px;color:rgba(255,255,255,.45)}
+    .eng-ct{font-size:12px;color:rgba(255,255,255,.35);margin-top:2px}
+    .hero-desc{font-size:15px;color:rgba(255,255,255,.55);max-width:460px;margin-bottom:32px;line-height:1.75;font-weight:300}
     .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
     .btn-red{background:var(--red);color:var(--white);padding:12px 28px;border-radius:3px;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;transition:background .2s;display:inline-block}
     .btn-red:hover{background:var(--red-dark)}
-    .btn-ghost{border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);padding:12px 28px;border-radius:3px;text-decoration:none;font-size:14px;letter-spacing:.04em;text-transform:uppercase;transition:border-color .2s;display:inline-block}
-    .btn-ghost:hover{border-color:rgba(255,255,255,.7);color:var(--white)}
-    .hero-stats{display:flex;margin-top:44px;border:1px solid rgba(255,255,255,.12);border-radius:4px;overflow:hidden}
-    .stat{flex:1;padding:16px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);padding:12px 28px;border-radius:3px;text-decoration:none;font-size:14px;letter-spacing:.04em;text-transform:uppercase;transition:border-color .2s;display:inline-block}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.6);color:var(--white)}
+    .hero-stats{display:flex;margin-top:44px;border:1px solid rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+    .stat{flex:1;padding:16px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
     .stat:last-child{border-right:none}
     .stat-n{font-family:var(--D);font-size:28px;font-weight:700;color:var(--red);display:block;line-height:1}
-    .stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;letter-spacing:.05em}
+    .stat-l{font-size:11px;color:rgba(255,255,255,.35);margin-top:4px;letter-spacing:.05em}
     .hero-vis{position:relative;z-index:1;display:flex;flex-direction:column;gap:11px}
-    .stag{
-      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-      border-radius:4px;padding:14px 18px;display:flex;align-items:center;gap:14px;
-      animation:sIn .5s ease both;
-    }
+    .stag{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:14px 18px;display:flex;align-items:center;gap:14px;animation:sIn .5s ease both}
     .stag:nth-child(2){animation-delay:.08s;margin-left:24px}
     .stag:nth-child(3){animation-delay:.16s}
     .stag:nth-child(4){animation-delay:.24s;margin-left:16px}
@@ -113,119 +67,107 @@
     @keyframes sIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
     .sdot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
     .sn{font-size:14px;font-weight:500;color:var(--white)}
-    .ss{font-size:12px;color:rgba(255,255,255,.4)}
+    .ss{font-size:12px;color:rgba(255,255,255,.38)}
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     .sec{padding:88px 5vw}
     .sh{text-align:center;margin-bottom:52px}
     .se{font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin-bottom:10px}
-    h2{font-family:var(--D);font-size:clamp(1.8rem,3vw,2.8rem);color:var(--green);line-height:1.1;font-weight:700;text-transform:uppercase}
+    h2{font-family:var(--D);font-size:clamp(1.8rem,3vw,2.8rem);color:var(--black);line-height:1.1;font-weight:700;text-transform:uppercase}
 
-    /* ── SERVICES ── */
+    /* SERVICES */
     .services{background:var(--off)}
     .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden}
     .srv-card{background:var(--white);padding:30px 26px;transition:background .2s}
-    .srv-card:hover{background:var(--green-light)}
-    .srv-card:hover .scn{color:var(--green-mid)}
+    .srv-card:hover{background:var(--red-light)}
+    .srv-card:hover .scn{color:var(--red)}
     .scn{font-family:var(--D);font-size:38px;font-weight:700;color:rgba(0,0,0,.06);line-height:1;margin-bottom:14px;transition:color .2s}
-    .srv-card h3{font-family:var(--D);font-size:1.15rem;font-weight:600;color:var(--green);margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em}
+    .srv-card h3{font-family:var(--D);font-size:1.15rem;font-weight:600;color:var(--black);margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em}
     .srv-card p{font-size:14px;color:var(--muted);line-height:1.65}
 
-    /* ── PRODUCTS STRIP ── */
+    /* STRIP */
     .pstrip{background:var(--red);padding:18px 5vw}
     .pstrip-label{font-size:11px;font-weight:600;letter-spacing:.16em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:10px}
     .pitems{display:flex;flex-wrap:wrap;gap:8px}
     .ppill{background:rgba(255,255,255,.15);color:var(--white);padding:5px 14px;border-radius:2px;font-size:13px;font-weight:500}
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     .projects{background:var(--white)}
     .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
-    .proj-card{
-      border:1px solid var(--border);border-radius:6px;padding:20px 22px;
-      border-left:4px solid var(--green-mid);
-      transition:box-shadow .2s,border-left-color .2s;
-    }
-    .proj-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);border-left-color:var(--red)}
-    .proj-client{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);margin-bottom:6px}
-    .proj-name{font-size:14px;font-weight:500;color:var(--green-dark);line-height:1.45}
+    .proj-card{border:1px solid var(--border);border-radius:6px;padding:20px 22px;border-left:4px solid var(--red);transition:box-shadow .2s}
+    .proj-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .proj-client{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+    .proj-name{font-size:14px;font-weight:500;color:var(--black);line-height:1.45}
     .proj-footer{display:flex;align-items:center;justify-content:flex-end;margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
     .proj-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:2px;letter-spacing:.06em}
-    .status-done{background:var(--green-light);color:var(--green-mid)}
-    .status-ongoing{background:#FFF8E1;color:#E65100}
-    .proj-total{
-      margin-top:28px;background:var(--green);border-radius:6px;
-      padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-    }
-    .proj-total-label{font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase}
-    .proj-total-val{font-family:var(--D);font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.9)}
-    .proj-total-note{font-size:13px;color:rgba(255,255,255,.35);margin-top:4px}
+    .done{background:#E8F5E9;color:#2E7D32}
+    .ongoing{background:#FFF8E1;color:#E65100}
+    .proj-bar{margin-top:28px;background:var(--charcoal);border-radius:6px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .proj-bar-l{font-size:13px;color:rgba(255,255,255,.45);letter-spacing:.05em;text-transform:uppercase}
+    .proj-bar-v{font-family:var(--D);font-size:1.5rem;font-weight:700;color:var(--white);margin-top:4px}
+    .proj-bar-n{font-size:12px;color:rgba(255,255,255,.3);margin-top:2px}
 
-    /* ── WHY ── */
-    .why{background:var(--green-dark)}
+    /* WHY */
+    .why{background:var(--charcoal)}
     .why .sh h2{color:var(--white)}
     .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;margin-top:44px}
-    .wi{border-top:2px solid rgba(255,255,255,.1);padding-top:22px;transition:border-top-color .2s}
+    .wi{border-top:2px solid rgba(255,255,255,.08);padding-top:22px;transition:border-top-color .2s}
     .wi:hover{border-top-color:var(--red)}
     .wi-n{font-family:var(--D);font-size:3rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:10px}
     .wi-t{font-size:15px;font-weight:500;color:var(--white);margin-bottom:6px}
     .wi-d{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
 
-    /* ── OFFICES ── */
+    /* OFFICES */
     .offices{background:var(--off)}
     .off-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:44px}
     .ocard{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:26px 22px;border-top:3px solid transparent;transition:border-top-color .2s}
     .ocard.cdo{border-top-color:var(--red)}
-    .ocard:hover{border-top-color:var(--green-mid)}
-    .obadge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:12px;background:var(--green-light);color:var(--green-mid)}
+    .ocard:hover{border-top-color:var(--red)}
+    .obadge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:12px;background:var(--red-light);color:var(--red)}
     .ocard.cdo .obadge{background:var(--red);color:var(--white)}
-    .ocard h3{font-family:var(--D);font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:8px;text-transform:uppercase}
+    .ocard h3{font-family:var(--D);font-size:1.1rem;font-weight:700;color:var(--black);margin-bottom:8px;text-transform:uppercase}
     .ocard p{font-size:13px;color:var(--muted);line-height:1.7}
-    .ocard .tel{font-size:13px;color:var(--green-dark);font-weight:500;margin-top:8px}
+    .ocard .tel{font-size:13px;color:var(--black);font-weight:500;margin-top:8px}
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     .contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;max-width:1100px;margin:0 auto}
-    .ci h2{font-family:var(--D);font-size:2.2rem;font-weight:700;color:var(--green);margin-bottom:12px;text-transform:uppercase}
+    .ci h2{font-family:var(--D);font-size:2.2rem;font-weight:700;color:var(--black);margin-bottom:12px;text-transform:uppercase}
     .ci>p{font-size:15px;color:var(--muted);margin-bottom:28px}
     .cdet{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
-    .cdet-icon{width:34px;height:34px;background:var(--green-light);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+    .cdet-icon{width:34px;height:34px;background:var(--red-light);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
     .cdet-lbl{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1px}
-    .cdet-val{font-size:14px;font-weight:500;color:var(--green-dark)}
+    .cdet-val{font-size:14px;font-weight:500;color:var(--black)}
     .fb-btn{display:inline-flex;align-items:center;gap:8px;background:#1877F2;color:var(--white);text-decoration:none;padding:10px 20px;border-radius:3px;font-size:14px;font-weight:600;margin-top:10px;transition:opacity .2s}
     .fb-btn:hover{opacity:.88}
 
-    /* Form */
-    .fcard{background:var(--green);border-radius:6px;padding:34px 30px}
+    /* FORM */
+    .fcard{background:var(--black);border-radius:6px;padding:34px 30px}
     .ftitle{font-family:var(--D);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:4px;text-transform:uppercase}
-    .fsub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:24px}
+    .fsub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:24px}
     .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .fg{margin-bottom:14px}
-    .fg label{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase}
-    .fg input,.fg select,.fg textarea{
-      width:100%;padding:10px 13px;
-      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;
-      font-family:var(--B);font-size:14px;color:var(--white);transition:border-color .2s;outline:none;
-    }
-    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25)}
-    .fg select option{background:#1B5E20;color:var(--white)}
+    .fg label{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.45);margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase}
+    .fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:3px;font-family:var(--B);font-size:14px;color:var(--white);transition:border-color .2s;outline:none}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.2)}
+    .fg select option{background:#222;color:var(--white)}
     .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red)}
     .fg textarea{resize:vertical;min-height:96px}
     .fsub-btn{width:100%;background:var(--red);color:var(--white);border:none;padding:13px;border-radius:3px;font-family:var(--B);font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
     .fsub-btn:hover{background:var(--red-dark)}
     .fsub-btn:disabled{opacity:.5;cursor:not-allowed}
     #fmsg{font-size:13px;text-align:center;margin-top:10px;min-height:18px;display:none}
-    #fmsg.ok{color:#A5D6A7;display:block}
+    #fmsg.ok{color:#6fcf97;display:block}
     #fmsg.err{color:#ff7070;display:block}
 
-    /* ── FOOTER ── */
-    footer{background:var(--green-dark);border-top:3px solid var(--red);padding:28px 5vw 20px}
+    /* FOOTER */
+    footer{background:var(--black);border-top:3px solid var(--red);padding:28px 5vw 20px}
     .ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:16px}
     .fln{font-family:var(--D);font-size:21px;font-weight:700;color:var(--red);letter-spacing:.04em}
-    .fls{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.12em}
+    .fls{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.12em}
     .fre{font-size:13px;color:rgba(255,255,255,.4);text-align:right}
-    .fre strong{color:rgba(255,255,255,.75);display:block}
-    .fc{font-size:12px;color:rgba(255,255,255,.25);border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+    .fre strong{color:rgba(255,255,255,.7);display:block}
+    .fc{font-size:12px;color:rgba(255,255,255,.2);border-top:1px solid rgba(255,255,255,.06);padding-top:14px}
 
-    /* ── RESPONSIVE ── */
     @media(max-width:860px){
       .hero{grid-template-columns:1fr;padding-top:90px}
       .hero-vis{display:none}
@@ -237,7 +179,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">
     <div class="nav-ring"></div>
@@ -252,7 +193,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-text">
     <p class="eyebrow">Now open — Cagayan de Oro</p>
@@ -273,7 +213,7 @@
     <div class="hero-stats">
       <div class="stat"><span class="stat-n">25+</span><p class="stat-l">Years in service</p></div>
       <div class="stat"><span class="stat-n">4</span><p class="stat-l">Branch offices</p></div>
-      <div class="stat"><span class="stat-n">23+</span><p class="stat-l">Major projects</p></div>
+      <div class="stat"><span class="stat-n">22+</span><p class="stat-l">Major projects</p></div>
       <div class="stat"><span class="stat-n">24/7</span><p class="stat-l">Support hotline</p></div>
     </div>
   </div>
@@ -286,7 +226,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="sec services" id="services">
   <div class="sh"><p class="se">What we do</p><h2>End-to-End Systems Solutions</h2></div>
   <div class="srv-grid">
@@ -297,64 +236,56 @@
   </div>
 </section>
 
-<!-- PRODUCTS STRIP -->
 <div class="pstrip">
   <p class="pstrip-label">Systems we work with</p>
   <div class="pitems">
-    <span class="ppill">Fire Protection System</span>
-    <span class="ppill">PABX</span>
-    <span class="ppill">Fire &amp; Security Alarms</span>
-    <span class="ppill">Networks &amp; Structured Cabling</span>
-    <span class="ppill">CCTV</span>
-    <span class="ppill">IP Telephony</span>
-    <span class="ppill">Access Control System</span>
-    <span class="ppill">Voice Mail</span>
+    <span class="ppill">Fire Protection System</span><span class="ppill">PABX</span>
+    <span class="ppill">Fire &amp; Security Alarms</span><span class="ppill">Networks &amp; Structured Cabling</span>
+    <span class="ppill">CCTV</span><span class="ppill">IP Telephony</span>
+    <span class="ppill">Access Control System</span><span class="ppill">Voice Mail</span>
     <span class="ppill">Public Address System</span>
   </div>
 </div>
 
-<!-- PROJECTS -->
 <section class="sec projects" id="projects">
   <div class="sh">
     <p class="se">Track record</p>
     <h2>Recent Projects</h2>
-    <p style="font-size:15px;color:var(--muted);margin-top:10px;font-weight:300">A selection of completed and ongoing installations across the Philippines.</p>
+    <p style="font-size:15px;color:var(--muted);margin-top:10px;font-weight:300">Completed and ongoing installations across the Philippines.</p>
   </div>
   <div class="proj-grid">
-    <div class="proj-card"><p class="proj-client">CBRE / IBM</p><p class="proj-name">IBM Eastwood Quezon — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">San Miguel Brewery</p><p class="proj-name">SMBI Tagoloan — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Metro Retail</p><p class="proj-name">Metro Colon — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall Carmen — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall — Supply &amp; Installation of Fire Sprinkler System</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall Expansion — Fire Sprinkler System &amp; FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Davao Doctors Hospital</p><p class="proj-name">DDH — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Crimson Beach Resort &amp; Spa Mactan</p><p class="proj-name">Crimson Mactan — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Zuellig Pharma Corporation</p><p class="proj-name">ZPC Canlubang — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">PJ Lhuillier</p><p class="proj-name">PJL Main / Annex 123 — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Primary Properties Corp.</p><p class="proj-name">PPC i2 11th Floor (Regis) — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Primary Properties Corp.</p><p class="proj-name">Brentwood Condominium — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Shemberg Biotech</p><p class="proj-name">Shemberg Biotech Phase 3 — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Lexmark</p><p class="proj-name">LP1 — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Apex Sky, Inc.</p><p class="proj-name">Apex Sky — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Venice Luxury</p><p class="proj-name">Venice Luxury — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Olympic Heights</p><p class="proj-name">Olympic Heights — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">Excelsior Condo</p><p class="proj-name">Excelsior Condo — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-done">Completed</span></div></div>
-    <div class="proj-card"><p class="proj-client">San Miguel Food Inc.</p><p class="proj-name">SMFI Hagonoy — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-ongoing">On-Going</span></div></div>
-    <div class="proj-card"><p class="proj-client">Meriam College</p><p class="proj-name">Meriam College — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-ongoing">On-Going</span></div></div>
-    <div class="proj-card"><p class="proj-client">San Miguel Brewery</p><p class="proj-name">SMB Darong — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status status-ongoing">On-Going</span></div></div>
+    <div class="proj-card"><p class="proj-client">CBRE / IBM</p><p class="proj-name">IBM Eastwood Quezon — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">San Miguel Brewery</p><p class="proj-name">SMBI Tagoloan — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Metro Retail</p><p class="proj-name">Metro Colon — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall Carmen — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall — Supply &amp; Installation of Fire Sprinkler System</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Bohol Quality Corporation</p><p class="proj-name">BQ Mall Expansion — Fire Sprinkler System &amp; FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Davao Doctors Hospital</p><p class="proj-name">DDH — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Crimson Beach Resort &amp; Spa Mactan</p><p class="proj-name">Crimson Mactan — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Zuellig Pharma Corporation</p><p class="proj-name">ZPC Canlubang — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">PJ Lhuillier</p><p class="proj-name">PJL Main / Annex 123 — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Primary Properties Corp.</p><p class="proj-name">PPC i2 11th Floor (Regis) — FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Primary Properties Corp.</p><p class="proj-name">Brentwood Condominium — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Shemberg Biotech</p><p class="proj-name">Shemberg Biotech Phase 3 — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Lexmark</p><p class="proj-name">LP1 — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Apex Sky, Inc.</p><p class="proj-name">Apex Sky — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Venice Luxury</p><p class="proj-name">Venice Luxury — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Olympic Heights</p><p class="proj-name">Olympic Heights — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">Excelsior Condo</p><p class="proj-name">Excelsior Condo — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status done">Completed</span></div></div>
+    <div class="proj-card"><p class="proj-client">San Miguel Food Inc.</p><p class="proj-name">SMFI Hagonoy — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status ongoing">On-Going</span></div></div>
+    <div class="proj-card"><p class="proj-client">Meriam College</p><p class="proj-name">Meriam College — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status ongoing">On-Going</span></div></div>
+    <div class="proj-card"><p class="proj-client">San Miguel Brewery</p><p class="proj-name">SMB Darong — Supply &amp; Installation of FDAS</p><div class="proj-footer"><span class="proj-status ongoing">On-Going</span></div></div>
   </div>
-
-  <div class="proj-total">
+  <div class="proj-bar">
     <div>
-      <p class="proj-total-label">22 projects listed &nbsp;·&nbsp; Nationwide coverage</p>
-      <p class="proj-total-val">Completed &amp; On-Going Installations</p>
+      <p class="proj-bar-l">22 projects listed &nbsp;·&nbsp; Nationwide coverage</p>
+      <p class="proj-bar-v">Completed &amp; On-Going Installations</p>
+      <p class="proj-bar-n">Partial list only — more available upon request</p>
     </div>
-    <p class="proj-total-note">Partial list only — more available upon request</p>
   </div>
 </section>
 
-<!-- WHY -->
 <section class="sec why" id="why">
   <div class="sh"><p class="se" style="color:rgba(255,120,120,.9)">Why Unotel</p><h2 style="color:var(--white)">The Standard in Every Branch</h2></div>
   <div class="why-grid">
@@ -365,38 +296,16 @@
   </div>
 </section>
 
-<!-- OFFICES -->
 <section class="sec offices" id="offices">
   <div class="sh"><p class="se">Our locations</p><h2>Four Offices Nationwide</h2></div>
   <div class="off-grid">
-    <div class="ocard cdo">
-      <span class="obadge">CDO — New</span>
-      <h3>Cagayan de Oro</h3>
-      <p>J.R. Borja Extension<br>Gusa, Cagayan de Oro City</p>
-      <p class="tel">Engr. Nikki Kyle M. Galicia, REE<br>09672560340</p>
-    </div>
-    <div class="ocard">
-      <span class="obadge">Headquarters</span>
-      <h3>Cebu Main Office</h3>
-      <p>Door 2, G.K. Chua Bldg.<br>Lopez Jaena St., Hi-way<br>Subangdaku, Mandaue City 6014</p>
-      <p class="tel">Tel: +63 32 346-1223<br>Telefax: +63 32 346-3979</p>
-    </div>
-    <div class="ocard">
-      <span class="obadge">Branch</span>
-      <h3>Manila Office</h3>
-      <p>Unit 206-207 Sierra Centre Bldg.<br>Domingo Guevarra cor. Sierra Madre St.<br>Mandaluyong City</p>
-      <p class="tel">Tel: (02)7576-4094 / (02)8531-0209<br>Hotline: (02)8400-0771</p>
-    </div>
-    <div class="ocard">
-      <span class="obadge">Branch</span>
-      <h3>Davao Office</h3>
-      <p>42 Jade St., Ecoland Phase 4<br>Matina, Davao City D.S. 8000</p>
-      <p class="tel">Telefax: +63 82 291-6769</p>
-    </div>
+    <div class="ocard cdo"><span class="obadge">CDO — New</span><h3>Cagayan de Oro</h3><p>J.R. Borja Extension<br>Gusa, Cagayan de Oro City</p><p class="tel">Engr. Nikki Kyle M. Galicia, REE<br>09672560340</p></div>
+    <div class="ocard"><span class="obadge">Headquarters</span><h3>Cebu Main Office</h3><p>Door 2, G.K. Chua Bldg.<br>Lopez Jaena St., Hi-way<br>Subangdaku, Mandaue City 6014</p><p class="tel">Tel: +63 32 346-1223<br>Telefax: +63 32 346-3979</p></div>
+    <div class="ocard"><span class="obadge">Branch</span><h3>Manila Office</h3><p>Unit 206-207 Sierra Centre Bldg.<br>Domingo Guevarra cor. Sierra Madre St.<br>Mandaluyong City</p><p class="tel">Tel: (02)7576-4094 / (02)8531-0209<br>Hotline: (02)8400-0771</p></div>
+    <div class="ocard"><span class="obadge">Branch</span><h3>Davao Office</h3><p>42 Jade St., Ecoland Phase 4<br>Matina, Davao City D.S. 8000</p><p class="tel">Telefax: +63 82 291-6769</p></div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="sec" id="contact">
   <div class="contact-wrap">
     <div class="ci">
@@ -461,7 +370,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft">
     <div><div class="fln">UNOTEL ELECTRONICS</div><div class="fls">INCORPORATED · EST. 1998</div></div>
@@ -471,7 +379,8 @@
 </footer>
 
 <script>
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwNhez03NU7-Ahny6wF_bhUBHXE-M7eq9WIvnygowc7PZJxz-U0vPQVpsaZdXYBdPFO/exec';
+  // ✅ After redeploying Code.gs, paste your NEW /exec URL here
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwIHWneuln6px36mVvkwBTY65N7X0mow_8372lYB46f1Meb5VJ-bqizXvj_wnmv0uM2/exec';
 
   document.getElementById('iform').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -482,15 +391,13 @@
     msg.className = '';
     msg.style.display = 'none';
 
-    const payload = { branch: 'CDO' };
-    payload.timestamp = new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' });
-    new FormData(this).forEach((v, k) => payload[k] = v);
+    const payload = { branch:'CDO', timestamp: new Date().toLocaleString('en-PH',{timeZone:'Asia/Manila'}) };
+    new FormData(this).forEach((v,k) => payload[k]=v);
 
     try {
       await fetch(WEB_APP_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
         body: JSON.stringify(payload)
       });
       msg.textContent = '✓ Inquiry received! Engr. Galicia will get back to you within one business day.';
